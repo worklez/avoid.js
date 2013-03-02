@@ -6,7 +6,7 @@ using namespace Avoid;
 
 void *createRouter()
 {
-	Router *router = new Router(OrthogonalRouting);
+	Router *router = new Router(OrthogonalRouting | PolyLineRouting);
 	return static_cast<void *>(router);
 }
 

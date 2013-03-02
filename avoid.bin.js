@@ -23189,9 +23189,9 @@ function __ZN5Avoid6RouterC2Ej(r1) {
   r4 = __Znwj(4);
   __ZN5Avoid22TopologyAddonInterfaceC1Ev(r4);
   HEAP32[r2 + 221] = r4;
-  HEAP8[r1 + 888 | 0] = 0;
   HEAP8[r1 + 890 | 0] = 1;
   HEAP8[r1 + 891 | 0] = 0;
+  HEAP8[r1 + 888 | 0] = 1;
   HEAP8[r1 + 889 | 0] = 1;
   r4 = r1 + 692 | 0;
   r2 = r4;
