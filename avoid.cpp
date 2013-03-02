@@ -22,6 +22,12 @@ void moveShape(void *router, void *shapeRef, double x, double y)
 	static_cast<Router *>(router)->moveShape(static_cast<ShapeRef *>(shapeRef), x, y);
 }
 
+void moveShapeRect(void *router, void *shapeRef, double x1, double y1, double x2, double y2)
+{
+	Rectangle rectangle(Point(x1, y1), Point(x2, y2));
+	static_cast<Router *>(router)->moveShape(static_cast<ShapeRef *>(shapeRef), rectangle);
+}
+
 void processTransaction(void *router)
 {
 	static_cast<Router *>(router)->processTransaction();

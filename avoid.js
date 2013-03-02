@@ -12,6 +12,9 @@ Avoid.C = {
 	// void moveShape(void *router, void* shapeRef, double x, double y)
 	moveShape: Module.cwrap('moveShape', 'number', ['number', 'number', 'number', 'number']),
 
+	// void moveShapeRect(void *router, void* shapeRef, double x1, double y1, double x2, double y2)
+	moveShapeRect: Module.cwrap('moveShapeRect', 'number', ['number', 'number', 'number', 'number', 'number', 'number']),
+
 	// void processTransaction(void *router)
 	processTransaction: Module.cwrap('processTransaction', 'number', ['number']),
 
@@ -38,6 +41,10 @@ Avoid.Router = function() {
 Avoid.Router.prototype = {
 	moveShape: function(shape, xDiff, yDiff) {
 		Avoid.C.moveShape(this._handle, shape._handle, xDiff, yDiff);
+	},
+
+	moveShapeRect: function(shape, x1, y1, x2, y2) {
+		Avoid.C.moveShapeRect(this._handle, shape._handle, x1, y1, x2, y2);
 	},
 
 	processTransaction: function() {
