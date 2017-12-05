@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <script src="avoid.bin.js"></script>
+    <script src="avoid.js"></script>
+    <script>
+        var nodes = [
+            {
+                x: 0,
+                y: 0,
+                width: 10,
+                height: 10
+            },
+            {
+                x: 20,
+                y: 20,
+                width: 10,
+                height: 10
+            }
+        ];
+        var router = new Avoid.Router();
+        nodes.forEach(function (node) {
+            new Avoid.Shape(router, node.x, node.y, node.x + node.width, node.y + node.height);
+        });
+
+        router.setShapeBuffer(10);
+        var start = { x: 25, y: 20 };
+        var end = { x: 10, y: 5 };
+
+        var connection = Avoid.Connection.connectPoints(router, start.x, start.y, end.x, end.y);
+        router.processTransaction();
+        const route = connection.displayRoute();
+        console.log(route);
+    </script>
+    <style>
+    </style>
+</body>
+
+</html>
